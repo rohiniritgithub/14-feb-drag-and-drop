@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		#first{
+			width: 300px;
+			height: 300px;
+			border: 1px solid black;
+			display: inline-block;
+		}
+	</style>
+	<title></title>
+	<script type="text/javascript">
+		function drag(ev)
+		{
+			ev.dataTransfer.setData("text",ev.target.id);
+		}
+		function allowDrop(ev)
+		{
+			ev.preventDefault();
+		}
+		function drop(ev)
+		{
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("text");
+	ev.target.appendChild(document.getElementById(data));
+}
+</script>image
+</head>
+<body>
+	<h2>drag and drop</h2>
+	<div id="first" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+
+<img src="images.webp" width="300px" height="300x" draggable="true" ondragstart="drag(event)" id="image">
+
+</body>
+</html>
